@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dave Mishal | Strategic Operations Executive</title>
+
+  <!-- SEO & Sharing -->
+  <meta name="description" content="Operations executive portfolio with instant JD-to-fit analysis: paste a job description and get a tailored, quantified fit summary."/>
+  <meta property="og:title" content="Dave Mishal | Strategic Operations Executive"/>
+  <meta property="og:description" content="Paste a job description → get a tailored, quantified fit summary."/>
+  <meta property="og:type" content="website"/>
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+
   <style>
     body { font-family: 'Inter', sans-serif; background-color: #F7FAFC; color: #1A202C; }
     .hero-section { background-color: #4299E1; color: #F7FAFC; }
@@ -19,8 +27,13 @@
     .timeline-item-content.open { max-height: 500px; }
     .chart-container { position: relative; width: 100%; max-width: 800px; margin: 0 auto; height: 400px; max-height: 50vh; }
     .filtered { display: none !important; }
-    .spinner { border: 3px solid #e5e7eb; border-top:3px solid #2563eb; border-radius: 50%; width:20px; height:20px; animation: spin 1s linear infinite; }
+    .spinner { border: 3px solid #e5e7eb; border-top:3px solid #2563eb; border-radius: 50%; width:18px; height:18px; animation: spin 1s linear infinite; }
     @keyframes spin { 100% { transform: rotate(360deg); } }
+    .control-label { font-size: .85rem; color: #4B5563; }
+    .note { font-size: .85rem; color: #6B7280; }
+    @media (max-width: 640px) {
+      .sticky-actions { position: sticky; bottom: 0; background: #F7FAFC; padding-bottom: .75rem; }
+    }
   </style>
 </head>
 <body class="antialiased">
@@ -29,7 +42,7 @@
     <!-- HERO -->
     <section id="hero" class="hero-section text-center py-20 px-4">
       <h1 class="text-4xl md:text-6xl font-extrabold text-white">Dave Mishal</h1>
-      <p class="text-lg md:text-2xl text-gray-200 mt-3">Strategic Operations Executive & Brand Builder</p>
+      <p class="text-lg md:text-2xl text-gray-100 mt-3">Strategic Operations Executive & Brand Builder</p>
       <div class="mt-8 flex flex-wrap justify-center items-center gap-4 text-gray-200">
         <a href="mailto:Dave.Mishal@gmail.com" class="hover:text-white transition">Dave.Mishal@gmail.com</a>
         <span class="text-gray-300">•</span>
@@ -45,8 +58,8 @@
     <section id="summary" class="py-16 px-4 md:px-8">
       <div class="max-w-4xl mx-auto">
         <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Professional Summary</h2>
-        <p class="text-lg text-gray-600 leading-relaxed mb-4">
-          Strategic Sales & Operations Executive with over 20 years of experience leading revenue-driven initiatives across retail, e-commerce, B2B, and distribution. Delivered over $12M in annual revenue, scaled national operations by 100%, and led a 120-person team across 14 locations. Proven track record of reducing operational costs by over $850K and increasing productivity by 30%+ through AI-driven tools, WMS, and scalable systems. Known for driving go-to-market efficiency, aligning teams with KPI performance, and building high-performance cultures that fuel growth.
+        <p class="text-lg text-gray-700 leading-relaxed mb-4">
+          Strategic Sales & Operations Executive with 20+ years leading revenue-driven initiatives across retail, e-commerce, B2B, and distribution. Delivered $12M+ annual revenue, scaled national operations 100%, and led 120 staff across 14 locations. Reduced operational costs by $850K+ and lifted productivity 30%+ via AI tools, WMS, and scalable systems. Aligns teams to KPIs and builds high-performance cultures that fuel growth.
         </p>
       </div>
     </section>
@@ -55,7 +68,7 @@
     <section id="skills" class="py-16 px-4 md:px-8 bg-gray-100">
       <div class="max-w-5xl mx-auto">
         <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Core Competencies</h2>
-        <p class="text-lg text-gray-600 mt-2 text-center mb-8">Click a skill to see how it's been applied in my career history.</p>
+        <p class="text-lg text-gray-600 mt-2 text-center mb-8">Click a skill to see where it appears in the timeline.</p>
         <div class="flex flex-wrap justify-center gap-3" id="skills-container"></div>
       </div>
     </section>
@@ -64,24 +77,662 @@
     <section id="what-i-bring" class="bg-white py-16 px-4 md:px-8">
       <div class="max-w-4xl mx-auto">
         <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">What I Bring to the Table</h2>
-        <div class="grid md:grid-cols-2 gap-8 text-lg text-gray-600">
+        <div class="grid md:grid-cols-2 gap-8 text-lg text-gray-700">
           <div class="space-y-6">
-            <div>
-              <h3 class="font-bold text-xl text-gray-800 mb-2">Retail Operations Leadership:</h3>
-              <p class="text-gray-600">Currently contributing to the rapid growth of one of the fastest-growing privately held companies in the US. My role revolves around orchestrating streamlined processes that have significantly fueled our company's expansion.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-xl text-gray-800 mb-2">Wholesale:</h3>
-              <p class="text-gray-600">Forged partnerships, managed 100+ trade shows, and secured placements with Toys R Us, Sam's Club, and more.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-xl text-gray-800 mb-2">eCommerce & Media Buying:</h3>
-              <p class="text-gray-600">Launched and scaled a kids' apparel brand to $600k in year one using Shopify, ShipStation, and paid media.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-xl text-gray-800 mb-2">Plant Management:</h3>
-              <p class="text-gray-600">Built a soap factory operation, $1M pipeline and $500k revenue in six months, with optimized production lines.</p>
-            </div>
+            <div><h3 class="font-bold text-xl text-gray-800 mb-2">Retail Operations Leadership</h3><p>Scaled footprints, implemented SOPs, and orchestrated AI/WMS workflows to boost productivity and control costs.</p></div>
+            <div><h3 class="font-bold text-xl text-gray-800 mb-2">Wholesale</h3><p>100+ trade shows; placements with Sam’s Club, Toys R Us; durable channel partnerships.</p></div>
+            <div><h3 class="font-bold text-xl text-gray-800 mb-2">eCommerce & Media Buying</h3><p>Launched a kids’ apparel brand to $600k in year one via Shopify, ShipStation, and paid media.</p></div>
+            <div><h3 class="font-bold text-xl text-gray-800 mb-2">Plant Management</h3><p>$1M pipeline; $500k in six months; optimized production recipes and lines.</p></div>
           </div>
           <div class="space-y-6">
-            <div><h3 class="font-bold text-xl text-gray-800 mb-2">Strategic Visionary:</h3><p class="text-gray-600">Fo
+            <div><h3 class="font-bold text-xl text-gray-800 mb-2">Strategic Vision</h3><p>Translates company goals into KPIs, cadences, and dashboards.</p></div>
+            <div><h3 class="font-bold text-xl text-gray-800 mb-2">Results-Driven</h3><p>Measurable lifts in revenue, margin, and throughput.</p></div>
+            <div><h3 class="font-bold text-xl text-gray-800 mb-2">Analytical</h3><p>Finds bottlenecks; designs scalable processes; tracks what matters.</p></div>
+            <div><h3 class="font-bold text-xl text-gray-800 mb-2">Tech-Forward</h3><p>Shopify, ShipStation, HubSpot, automations, and BI tools.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- METRICS -->
+    <section id="key-metrics" class="bg-gray-100 py-16 px-4 md:px-8">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Key Achievements at a Glance</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="stat-card p-6 rounded-xl text-center shadow-md"><h3 class="text-5xl font-extrabold text-blue-600">$12M+</h3><p class="mt-2 text-lg font-medium text-gray-700">Annual Revenue Delivered</p></div>
+          <div class="stat-card p-6 rounded-xl text-center shadow-md"><h3 class="text-5xl font-extrabold text-green-600">$850K+</h3><p class="mt-2 text-lg font-medium text-gray-700">Operational Costs Reduced</p></div>
+          <div class="stat-card p-6 rounded-xl text-center shadow-md"><h3 class="text-5xl font-extrabold text-purple-600">100%</h3><p class="mt-2 text-lg font-medium text-gray-700">National Operations Scaled</p></div>
+          <div class="stat-card p-6 rounded-xl text-center shadow-md"><h3 class="text-5xl font-extrabold text-yellow-600">120</h3><p class="mt-2 text-lg font-medium text-gray-700">Person Team Led</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHARTS -->
+    <section id="visualizations" class="bg-white py-16 px-4 md:px-8">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Visualizing My Impact</h2>
+        <p class="text-lg text-gray-600 mt-2 text-center mb-12">Financial and operational performance from key roles.</p>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div class="chart-container shadow-md rounded-xl bg-gray-100 p-4"><canvas id="financialImpactChart" loading="lazy"></canvas></div>
+          <div class="chart-container shadow-md rounded-xl bg-gray-100 p-4"><canvas id="efficiencyGainsChart" loading="lazy"></canvas></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="py-16 px-4 md:px-8">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Interactive Career Timeline</h2>
+        <p class="text-lg text-gray-600 mt-2 text-center mb-12">Explore my professional journey and achievements in detail.</p>
+        <div class="relative">
+          <div class="absolute left-1/2 h-full w-0.5 bg-gray-300 transform -translate-x-1/2"></div>
+          <div id="timeline-container" class="space-y-12"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LLM FEATURE -->
+    <section id="llm-features" class="bg-gray-100 py-16 px-4 md:px-8">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center">
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">Paste a Job Description → Get Why I’m a Fit</h2>
+          <p class="text-lg text-gray-600">Your text stays in your browser. If you later enable the API, only then is text sent to your secure proxy.</p>
+        </div>
+
+        <!-- Controls -->
+        <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <label class="control-label block mb-1" for="tone">Tone</label>
+            <select id="tone" class="w-full border border-gray-300 rounded-lg p-2">
+              <option>Executive</option>
+              <option>Analytical</option>
+              <option>Energetic</option>
+            </select>
+          </div>
+          <div>
+            <label class="control-label block mb-1" for="seniority">Seniority focus</label>
+            <select id="seniority" class="w-full border border-gray-300 rounded-lg p-2">
+              <option>Director</option>
+              <option>VP</option>
+              <option>Manager</option>
+              <option>IC</option>
+            </select>
+          </div>
+          <div class="flex items-end">
+            <p class="note">Tip: Set tone/seniority, paste the JD, then click Generate.</p>
+          </div>
+        </div>
+
+        <div class="max-w-4xl mx-auto mt-6">
+          <textarea id="job-description-input" class="w-full h-44 p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow duration-200" placeholder="Paste the job description here..."></textarea>
+
+          <div class="sticky-actions mt-4 space-y-2 sm:space-y-0 sm:flex sm:items-center sm:justify-between">
+            <button id="generate-cover-letter-btn" class="w-full sm:w-auto bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 transition flex items-center justify-center gap-2">
+              <span id="button-text">Generate my tailored fit</span>
+              <span id="loading-spinner" class="spinner hidden"></span>
+            </button>
+            <div class="flex gap-2 justify-end">
+              <button id="copy-output" class="text-sm px-3 py-2 rounded border border-gray-300 hover:bg-gray-50">Copy</button>
+              <button id="download-output" class="text-sm px-3 py-2 rounded border border-gray-300 hover:bg-gray-50">Download .txt</button>
+            </div>
+          </div>
+
+          <div id="cover-letter-output" class="mt-3 p-6 bg-white rounded-lg border border-gray-200 min-h-[200px] text-gray-800 whitespace-pre-wrap text-left shadow-md" aria-live="polite">
+            The answer will appear here, demonstrating how my skills align with your requirements.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="call-to-action" class="text-center py-16 px-4 md:px-8 bg-blue-600 text-white">
+      <h2 class="text-3xl font-bold mb-4">Let's discuss how my expertise can drive your growth.</h2>
+      <p class="text-lg max-w-2xl mx-auto mb-4">Email or call to schedule a conversation.</p>
+      <p class="text-xl max-w-2xl mx-auto mb-8 font-bold">Email: Dave.Mishal@gmail.com</p>
+      <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+        <a href="mailto:Dave.Mishal@gmail.com" class="bg-white text-blue-600 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-gray-100 transition-all">Email Me</a>
+        <span class="text-white text-xl">or</span>
+        <span class="text-white text-xl">Call: 702-506-4865</span>
+      </div>
+    </section>
+
+    <footer class="text-center py-8 border-t border-gray-200 mt-16">
+      <p class="text-gray-600">&copy; 2025 Dave Mishal | All Rights Reserved</p>
+    </footer>
+  </div>
+
+  <script>
+    /* ---------------- RESUME DATA ---------------- */
+    const resumeData = {
+      name: "Dave Mishal",
+      email: "Dave.Mishal@gmail.com",
+      phone: "702-506-4865",
+      linkedin: "https://www.linkedin.com/in/dave-mishal/",
+      summary:
+        "Strategic Sales & Operations Executive with over 20 years of experience leading revenue-driven initiatives across retail, e-commerce, B2B, and distribution. Delivered $12M+ annual revenue, scaled national operations 100%, led 120 staff across 14 locations, cut $850K+ cost, and boosted productivity 30%+ via AI, WMS, and SOPs.",
+      education: {
+        degree: "Bachelor of Business Administration (BBA)",
+        institution: "The Open University of Israel",
+        location: "Israel",
+        graduationDate: "Jan 2003",
+      },
+      certifications: [
+        "Certified Prompt Engineer (GenAI Master)",
+        "NextGen Leadership Program",
+        "Paid Media – Facebook, Instagram & TikTok",
+        "AI Strategic Expert – ChatGPT Power User",
+        "Monday | Trello | Google Workspace | HubSpot | Shopify | Excel | Shipstation | Zapier | AI Tools | Slack | WMS | BI Dashboards",
+      ],
+      experience: [
+        {
+          company: "K&L",
+          location: "Las Vegas, NV",
+          role: "Director of Operations / Retail Operations",
+          dates: "Jan 2021 – Present",
+          achievements: [
+            "Expanded company footprint by 43%, launching six new stores nationwide.",
+            "Introduced AI-driven tools and WMS automation, increasing productivity by 30%.",
+            "Reduced retail payroll by 6% ($600K annually) and overall ops budget by $250K.",
+            "Implemented SOPs that improved team productivity by 20% and saved $150K annually.",
+            "Managed 120 employees across 14 retail and distribution locations.",
+          ],
+          metrics: { financial: 850, efficiency: 30 },
+          skills: [
+            "AI Workflow Automation","P&L Management","Team Leadership","Business Scaling",
+            "WMS Implementation","Retail Strategy","Operational Efficiency","SOP Development",
+            "Project Management","Shipping Optimization"
+          ],
+        },
+        {
+          company: "Tees Jungle LLC / Ariel US LLC",
+          location: "Las Vegas, NV",
+          role: "Founder & Managing Partner",
+          dates: "Jan 2005 – Jan 2021",
+          achievements: [
+            "Launched and scaled a children’s apparel brand to $1M+ revenue within two years.",
+            "Secured wholesale partnerships with zoos and aquariums, growing wholesale by 35%.",
+            "Directed operations for 14 retail locations, reducing costs by 15% and increasing sales 20%.",
+            "Secured wholesale deals with Sam's Club and Toys R Us, increasing revenue 30%.",
+            "Executed 100+ trade shows, boosting visibility and partnerships by 30%.",
+            "Pioneered innovative beauty product lines with category leadership.",
+          ],
+          metrics: { financial: 300, efficiency: 25 },
+          skills: [
+            "Go-to-Market Strategy","Product Development","Market Expansion","Retail Strategy",
+            "P&L Management","Brand Development","Strategic Leadership","Vendor Relations",
+            "Multichannel Retail","Shopify","Shipstation","Paid Media"
+          ],
+        },
+        {
+          company: "Ournese Soap Factory",
+          location: "Las Vegas, NV",
+          role: "Plant General Manager / Director of Operations",
+          dates: "Jan 2018 – Jan 2020",
+          achievements: [
+            "Implemented a production workflow system, increasing production efficiency by 20%.",
+            "Developed product recipe books, reducing production damages and waste by 30%.",
+            "Directed operations across supply chain and retail, improving efficiency by 20%.",
+            "Reduced waste by 30%, increased output by 20%, and secured $1M in new B2B accounts.",
+          ],
+          metrics: { financial: 250, efficiency: 20 },
+          skills: [
+            "Operational Efficiency","Supply Chain Optimization","P&L Management",
+            "Product Development","B2B Sales","Quality Improvement","Workflow Optimization"
+          ],
+        },
+        {
+          company: "Natural Beauty",
+          location: "Las Vegas, NV",
+          role: "District Manager",
+          dates: "Jan 2003 – Jan 2005",
+          achievements: ["Oversaw 10 stores and 50 employees, boosting revenue 30% through training programs."],
+          metrics: { financial: 0, efficiency: 0 },
+          skills: ["Team Leadership","Retail Strategy","Operational Efficiency"],
+        },
+        {
+          company: "H.Stern",
+          location: "Tel Aviv, Israel",
+          role: "Sales Associate",
+          dates: "Jan 2001 – Jan 2003",
+          achievements: ["Ranked top 10 in national sales performance, increasing order value by 30%."],
+          metrics: { financial: 0, efficiency: 0 },
+          skills: ["Sales Performance","Client Relations"],
+        },
+        {
+          company: "RCI Timeshares",
+          location: "Tel Aviv, Israel",
+          role: "Sales Associate",
+          dates: "Jan 2000 – Jan 2001",
+          achievements: ["Generated $500K revenue and exceeded monthly targets by 25%."],
+          metrics: { financial: 500, efficiency: 0 },
+          skills: ["Sales","Revenue Generation"],
+        },
+      ],
+      military: {
+        organization: "Israel Navy",
+        role: "Head of Base Security",
+        dates: "Jan 1998 – Jan 2000",
+        achievements: [
+          "Managed a team of 50 soldiers with a 0% breach rate over two years.",
+          "Implemented security protocols that reduced incidents by 30%.",
+        ],
+      },
+      skills: [
+        "Strategic Leadership","P&L Management","Operational Efficiency","Business Scaling","Team Leadership",
+        "AI Workflow Automation","Supply Chain Optimization","WMS Implementation","Inventory Control",
+        "Market Expansion","SOP Development","Cross-functional Collaboration","Product Development",
+        "Go-to-Market Strategy","Retail Strategy","Paid Media","Email & SMS Marketing","Tech Proficient",
+        "KPI Driven Mindset","Analytical Thinker","Problem Solver","Brand Development","Vendor Relations",
+        "Multichannel Retail","Prompt Engineering","HubSpot","Hubstaff","Excel","Shopify","Shipstation"
+      ],
+    };
+
+    /* ---------------- RENDER SKILLS ---------------- */
+    function renderSkills() {
+      const skillsContainer = document.getElementById('skills-container');
+      if (!skillsContainer) return;
+      skillsContainer.innerHTML = '';
+      const allSkills = new Set(resumeData.skills);
+      allSkills.forEach(skill => {
+        const skillTag = document.createElement('span');
+        skillTag.textContent = skill;
+        skillTag.className = 'bg-gray-200 text-gray-800 text-sm font-medium px-4 py-2 rounded-full cursor-pointer hover:bg-gray-300 transition';
+        skillTag.setAttribute('data-skill', skill);
+        skillTag.addEventListener('click', () => filterTimeline(skill));
+        skillsContainer.appendChild(skillTag);
+      });
+    }
+
+    function filterTimeline(selectedSkill) {
+      const timelineItems = document.querySelectorAll('#timeline-container .timeline-item');
+      const skillsTags = document.querySelectorAll('#skills-container span');
+      skillsTags.forEach(tag => {
+        if (tag.getAttribute('data-skill') === selectedSkill) {
+          tag.classList.remove('bg-gray-200', 'text-gray-800');
+          tag.classList.add('bg-blue-600', 'text-white');
+        } else {
+          tag.classList.remove('bg-blue-600', 'text-white');
+          tag.classList.add('bg-gray-200', 'text-gray-800');
+        }
+      });
+
+      timelineItems.forEach(item => {
+        const job = resumeData.experience.find(exp => item.dataset.company.includes(exp.company));
+        if (job && job.skills && job.skills.includes(selectedSkill)) {
+          item.classList.remove('filtered');
+        } else {
+          item.classList.add('filtered');
+        }
+      });
+    }
+
+    /* ---------------- TIMELINE ---------------- */
+    function createTimeline() {
+      const container = document.getElementById('timeline-container');
+      if (!container) return;
+      container.innerHTML = '';
+      const allExperience = [
+        ...resumeData.experience,
+        { ...resumeData.military, company: resumeData.military.organization, role: resumeData.military.role, dates: resumeData.military.dates, achievements: resumeData.military.achievements, skills: [] }
+      ];
+      allExperience.forEach((job, index) => {
+        const isLeft = index % 2 === 0;
+        const timelineItem = document.createElement('div');
+        timelineItem.className = `relative timeline-item`;
+        timelineItem.dataset.company = job.company;
+
+        const contentBlock = `
+          <div class="cursor-pointer p-6 bg-white rounded-xl shadow-md border border-gray-200 hover:shadow-xl transition">
+            <h3 class="text-xl font-bold text-gray-800">${job.role}</h3>
+            <p class="text-md font-semibold text-gray-600">${job.company}</p>
+            <p class="text-sm text-gray-500">${job.dates}</p>
+            <div class="timeline-item-content mt-4">
+              <ul class="list-disc list-inside space-y-2 text-gray-600">
+                ${(job.achievements || []).map(ach => `<li>${ach}</li>`).join('')}
+              </ul>
+            </div>
+          </div>
+        `;
+
+        const dot = `<div class="absolute top-1/2 left-1/2 w-4 h-4 bg-gray-700 rounded-full transform -translate-y-1/2 -translate-x-1/2 border-4 border-white"></div>`;
+
+        if (isLeft) {
+          timelineItem.innerHTML = `<div class="w-1/2 pr-8">${contentBlock}</div><div class="w-1/2"></div>${dot}`;
+          timelineItem.classList.add('flex', 'justify-start');
+        } else {
+          timelineItem.innerHTML = `<div class="w-1/2"></div><div class="w-1/2 pl-8">${contentBlock}</div>${dot}`;
+          timelineItem.classList.add('flex', 'justify-end', 'text-right');
+          setTimeout(() => {
+            const ul = timelineItem.querySelector('.list-disc');
+            if (ul) { ul.classList.remove('list-inside'); ul.classList.add('text-left'); }
+          }, 0);
+        }
+
+        container.appendChild(timelineItem);
+
+        timelineItem.querySelector('.cursor-pointer').addEventListener('click', (e) => {
+          const content = e.currentTarget.querySelector('.timeline-item-content');
+          content.classList.toggle('open');
+        });
+      });
+    }
+
+    /* ---------------- CHARTS (LAZY INIT) ---------------- */
+    let chartsInitialized = false;
+    function initCharts() {
+      if (chartsInitialized) return;
+      chartsInitialized = true;
+
+      const financialCtx = document.getElementById('financialImpactChart');
+      const efficiencyCtx = document.getElementById('efficiencyGainsChart');
+      if (!(financialCtx && efficiencyCtx)) return;
+
+      const chartLabels = resumeData.experience.map(job => job.company).slice(0, 3).reverse();
+      const costSavingsData = resumeData.experience.map(job => job.metrics.financial).slice(0, 3).reverse();
+      const efficiencyData = resumeData.experience.map(job => job.metrics.efficiency).slice(0, 3).reverse();
+
+      const commonOptions = {
+        responsive: true, maintainAspectRatio: false,
+        plugins: {
+          legend: { position: 'top' },
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                let label = context.dataset.label ? context.dataset.label + ': ' : '';
+                if (context.parsed.y !== null) {
+                  if (context.dataset.label.includes('Productivity')) {
+                    label += context.parsed.y + '%';
+                  } else {
+                    label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }).format(context.parsed.y * 1000);
+                  }
+                }
+                return label;
+              }
+            }
+          }
+        },
+        scales: { x: { grid: { display: false } }, y: { beginAtZero: true, grid: { color: '#E2E8F0' } } }
+      };
+
+      new Chart(financialCtx, {
+        type: 'bar',
+        data: {
+          labels: chartLabels,
+          datasets: [{ label: 'Cost Savings (in thousands)', data: costSavingsData, backgroundColor: 'rgba(59,130,246,0.7)', borderColor: 'rgba(59,130,246,1)', borderWidth: 1 }]
+        },
+        options: { ...commonOptions, plugins: { ...commonOptions.plugins, title: { display: true, text: 'Annual Cost Savings by Role', font: { size: 16 } } }, scales: { ...commonOptions.scales, y: { ...commonOptions.scales.y, ticks: { callback: v => '$' + v + 'K' } } } }
+      });
+
+      new Chart(efficiencyCtx, {
+        type: 'bar',
+        data: {
+          labels: chartLabels,
+          datasets: [{ label: 'Productivity/Efficiency Gain', data: efficiencyData, backgroundColor: 'rgba(16,185,129,0.7)', borderColor: 'rgba(16,185,129,1)', borderWidth: 1 }]
+        },
+        options: { ...commonOptions, plugins: { ...commonOptions.plugins, title: { display: true, text: 'Productivity & Efficiency Gains (%)', font: { size: 16 } } }, scales: { ...commonOptions.scales, y: { ...commonOptions.scales.y, ticks: { callback: v => v + '%' } } } }
+      });
+    }
+
+    // Lazy init when charts section is visible
+    const chartsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) initCharts(); });
+    }, { threshold: 0.2 });
+
+    /* ---------------- LLM: LOCAL ANALYSIS + CONTROLS ---------------- */
+
+    function extractRequirements(jdText) {
+      const lines = jdText.replace(/\r/g, '').split('\n').map(l => l.trim()).filter(Boolean);
+      const bullets = lines.filter(l => /^[•\-*]/.test(l) || /\b(responsibilities|requirements|qualifications|what you’ll do|what you will do|you will)\b/i.test(l));
+      const keywords = new Set();
+      const keywordBank = [
+        "operations","strategy","revenue","profitability","pricing","analytics","dashboard","KPI",
+        "supply chain","inventory","WMS","SOP","automation","AI","process improvement",
+        "retail","ecommerce","B2B","sales","P&L","budget","forecast","leadership","stakeholder",
+        "Tableau","Power BI","Looker","HubSpot","Shopify","ShipStation","Zapier","SQL"
+      ];
+      keywordBank.forEach(k => {
+        const re = new RegExp(`\\b${k.replace(/\s+/g,"\\s+")}\\b`, "i");
+        if (re.test(jdText)) keywords.add(k);
+      });
+      return { bullets: bullets.slice(0, 20), keywords: Array.from(keywords) };
+    }
+
+    function scoreMatch(resume, req) {
+      const textBank = [
+        resume.summary,
+        resume.certifications.join(' '),
+        resume.skills.join(' '),
+        ...resume.experience.map(e => [e.role, e.company, e.achievements.join(' '), (e.skills||[]).join(' '), JSON.stringify(e.metrics||{})].join(' '))
+      ].join(' ').toLowerCase();
+      let hitCount = 0; const hits = [];
+      req.keywords.forEach(k => { if (textBank.includes(k.toLowerCase())) { hitCount++; hits.push(k); } });
+      const score = Math.min(100, Math.round((hitCount / Math.max(8, req.keywords.length || 1)) * 100));
+      return { score, hits };
+    }
+
+    function applyTone(text, tone) {
+      if (tone === 'Analytical') return text.replace(/I’m /g, "I am ").replace(/ - /g, " — ");
+      if (tone === 'Energetic') return text.replace(/I’m /g, "I'm ").replace(/• /g, "• ✅ ");
+      return text; // Executive: default concise, confident
+    }
+
+    function seniorityWeights(seniority) {
+      switch (seniority) {
+        case 'VP': return { strategy: 3, leadership: 3, ops: 2 };
+        case 'Director': return { strategy: 2, leadership: 3, ops: 2 };
+        case 'Manager': return { strategy: 1, leadership: 2, ops: 3 };
+        case 'IC': return { strategy: 1, leadership: 1, ops: 4 };
+        default: return { strategy: 2, leadership: 2, ops: 2 };
+      }
+    }
+
+    function classifyAchievement(a) {
+      const t = a.toLowerCase();
+      if (t.includes("launched") || t.includes("scaled") || t.includes("pipeline") || t.includes("revenue")) return "strategy";
+      if (t.includes("managed") || t.includes("team") || t.includes("stores") || t.includes("locations")) return "leadership";
+      return "ops"; // cost, process, WMS, SOP, % improvements
+    }
+
+    function buildLocalAnswer(jdText, resume, req, match, tone, seniority) {
+      const weights = seniorityWeights(seniority);
+      const quantified = [];
+      resume.experience.forEach(e => (e.achievements || []).forEach(a => { if (/\d/.test(a)) quantified.push(a); }));
+
+      // Sort wins by seniority weighting
+      const winsSorted = [...quantified].sort((a, b) => {
+        const wa = weights[classifyAchievement(a)] || 1;
+        const wb = weights[classifyAchievement(b)] || 1;
+        return wb - wa;
+      });
+
+      const topWins = winsSorted.slice(0, 6);
+      const topHits = match.hits.slice(0, 8);
+
+      const bulletsMapped = req.bullets.slice(0, 6).map(b => {
+        const win = winsSorted.find(q => {
+          const words = b.toLowerCase().split(/\W+/).filter(w => w.length > 3);
+          return words.some(w => q.toLowerCase().includes(w));
+        });
+        return `• ${b.replace(/^[•\-*]\s?/, '')}
+  – Relevant: ${win || 'I’ve executed similar initiatives across operations, automation, and KPI-driven execution.'}`;
+      });
+
+      let text = [
+        `Why I’m a Strong Fit (Match Score: ${match.score}%)`,
+        ``,
+        `I’m an operations leader who has scaled multi-channel businesses and delivered measurable results across retail, e-commerce, and B2B. I translate requirements into KPIs, systems, and team routines that lift revenue and efficiency.`,
+        ``,
+        `Direct relevance to this role:`,
+        ...topHits.map(h => `• ${h}`),
+        ``,
+        `Proof points (selected):`,
+        ...topWins.map(w => `• ${w}`),
+        ``,
+        `How your needs map to my experience:`,
+        ...bulletsMapped,
+        ``,
+        `Happy to walk through dashboards/workflows (WMS, SOPs, automations) that produced the outcomes above.`
+      ].join('\n');
+
+      text = applyTone(text, tone);
+      return text;
+    }
+
+    async function generateCoverLetter() {
+      const jdEl = document.getElementById('job-description-input');
+      const outputDiv = document.getElementById('cover-letter-output');
+      const button = document.getElementById('generate-cover-letter-btn');
+      const btnText = document.getElementById('button-text');
+      const spinner = document.getElementById('loading-spinner');
+      const tone = document.getElementById('tone').value;
+      const seniority = document.getElementById('seniority').value;
+
+      const jobDescription = jdEl.value.trim();
+      if (!jobDescription) { outputDiv.textContent = "Please paste a job description to see why I'm the best fit."; return; }
+      if (jobDescription.length < 120) { outputDiv.textContent = "The job description looks short. Paste more of the posting for better results."; return; }
+
+      const originalText = btnText.textContent;
+      button.disabled = true; btnText.textContent = "Analyzing…"; spinner.classList.remove('hidden');
+      outputDiv.textContent = "Working…";
+
+      try {
+        const req = extractRequirements(jobDescription);
+        const match = scoreMatch(resumeData, req);
+        const text = buildLocalAnswer(jobDescription, resumeData, req, match, tone, seniority);
+        outputDiv.textContent = text;
+        saveState(); // persist latest
+      } finally {
+        button.disabled = false; btnText.textContent = originalText; spinner.classList.add('hidden');
+      }
+    }
+
+    /* ---------------- UTILITIES ---------------- */
+    function createDownloadableResume() {
+      const printableContent = `
+        <div class="p-8 font-sans">
+          <h1 class="text-3xl font-bold mb-1">${resumeData.name}</h1>
+          <p class="text-gray-600 mb-4">${resumeData.email} | ${resumeData.phone}</p>
+          <hr class="my-4">
+          <h2 class="text-xl font-bold mb-2">Professional Summary</h2>
+          <p class="text-gray-700">${resumeData.summary}</p>
+          <hr class="my-4">
+          <h2 class="text-xl font-bold mb-2">Work Experience</h2>
+          ${resumeData.experience.map(job => `
+            <div class="mb-4">
+              <h3 class="text-lg font-bold">${job.role} at ${job.company}</h3>
+              <p class="text-gray-600 text-sm">${job.dates}</p>
+              <ul class="list-disc list-inside text-gray-700 mt-2">
+                ${(job.achievements || []).map(ach => `<li>${ach}</li>`).join('')}
+              </ul>
+            </div>
+          `).join('')}
+          <h2 class="text-xl font-bold mb-2">Leadership Experience</h2>
+          <div class="mb-4">
+            <h3 class="text-lg font-bold">${resumeData.military.role} at ${resumeData.military.organization}</h3>
+            <p class="text-gray-600 text-sm">${resumeData.military.dates}</p>
+            <ul class="list-disc list-inside text-gray-700 mt-2">
+              ${(resumeData.military.achievements || []).map(ach => `<li>${ach}</li>`).join('')}
+            </ul>
+          </div>
+          <hr class="my-4">
+          <h2 class="text-xl font-bold mb-2">Core Competencies</h2>
+          <p class="text-gray-700">${resumeData.skills.join(', ')}</p>
+          <hr class="my-4">
+          <h2 class="text-xl font-bold mb-2">Education</h2>
+          <div class="mb-4">
+            <h3 class="text-lg font-bold">${resumeData.education.degree} | ${resumeData.education.graduationDate}</h3>
+            <p class="text-gray-600 text-sm">${resumeData.education.institution} - ${resumeData.education.location}</p>
+          </div>
+          <hr class="my-4">
+          <h2 class="text-xl font-bold mb-2">Certifications</h2>
+          <ul class="list-disc list-inside space-y-2 text-gray-700">
+            ${resumeData.certifications.map(cert => `<li>${cert}</li>`).join('')}
+          </ul>
+        </div>
+      `;
+      const printWindow = window.open('', '', 'height=600,width=800');
+      printWindow.document.write('<html><head><title>Resume - Dave Mishal</title>');
+      printWindow.document.write('<style>body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; margin: 2rem; }</style>');
+      printWindow.document.write('</head><body>');
+      printWindow.document.write(printableContent);
+      printWindow.document.write('</body></html>');
+      printWindow.document.close();
+      printWindow.focus();
+      printWindow.print();
+    }
+
+    function hookupCopyDownload() {
+      const copyBtn = document.getElementById('copy-output');
+      const dlBtn = document.getElementById('download-output');
+      const out = document.getElementById('cover-letter-output');
+
+      copyBtn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(out.textContent || '');
+          copyBtn.textContent = 'Copied!';
+          setTimeout(() => (copyBtn.textContent = 'Copy'), 1200);
+        } catch {
+          copyBtn.textContent = 'Copy failed';
+          setTimeout(() => (copyBtn.textContent = 'Copy'), 1200);
+        }
+      });
+
+      dlBtn.addEventListener('click', () => {
+        const blob = new Blob([out.textContent || ''], { type: 'text/plain;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url; a.download = 'why-im-a-fit.txt';
+        document.body.appendChild(a); a.click();
+        a.remove(); URL.revokeObjectURL(url);
+      });
+    }
+
+    /* ---------------- AUTOSAVE ---------------- */
+    const LS_KEY = 'dm-fit-tool-v1';
+    function saveState() {
+      const state = {
+        jd: document.getElementById('job-description-input').value,
+        tone: document.getElementById('tone').value,
+        seniority: document.getElementById('seniority').value,
+        output: document.getElementById('cover-letter-output').textContent
+      };
+      localStorage.setItem(LS_KEY, JSON.stringify(state));
+    }
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(LS_KEY);
+        if (!raw) return;
+        const s = JSON.parse(raw);
+        if (s.jd) document.getElementById('job-description-input').value = s.jd;
+        if (s.tone) document.getElementById('tone').value = s.tone;
+        if (s.seniority) document.getElementById('seniority').value = s.seniority;
+        if (s.output) document.getElementById('cover-letter-output').textContent = s.output;
+      } catch {}
+    }
+
+    /* ---------------- INIT ---------------- */
+    document.addEventListener('DOMContentLoaded', () => {
+      renderSkills();
+      createTimeline();
+
+      // Lazy charts when visible
+      const chartsSection = document.getElementById('visualizations');
+      if (chartsSection) chartsObserver.observe(chartsSection);
+
+      const generateBtn = document.getElementById('generate-cover-letter-btn');
+      if (generateBtn) generateBtn.addEventListener('click', generateCoverLetter);
+
+      const downloadBtn = document.getElementById('download-resume-btn');
+      if (downloadBtn) downloadBtn.addEventListener('click', createDownloadableResume);
+
+      hookupCopyDownload();
+      loadState();
+
+      // Persist changes
+      document.getElementById('job-description-input').addEventListener('input', saveState);
+      document.getElementById('tone').addEventListener('change', saveState);
+      document.getElementById('seniority').addEventListener('change', saveState);
+    });
+  </script>
+</body>
+</html>
