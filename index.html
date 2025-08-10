@@ -148,11 +148,9 @@
         placeholder="Paste the job description here..."></textarea>
 
       <div class="mt-4 flex items-center justify-between">
-        <button id="generate-cover-letter-btn"
-          class="bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 transition flex items-center justify-center gap-2">
-          <span id="button-text">Generate my tailored fit</span>
-          <span id="loading-spinner" class="spinner hidden"></span>
-        </button>
+       <button id="generate-cover-letter-btn" class="mt-4 w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all duration-200 flex items-center justify-center space-x-2">
+  <span id="button-text">Show me why Dave Mishal is a great fit</span>
+</button>
         <div class="flex gap-2">
           <button id="copy-output" class="text-sm px-3 py-2 rounded border border-gray-300 hover:bg-gray-50">Copy</button>
           <button id="download-output" class="text-sm px-3 py-2 rounded border border-gray-300 hover:bg-gray-50">Download .txt</button>
@@ -772,6 +770,7 @@ async function generateCoverLetter(jobDescription) {
 
 </body>
 </html>
+
 
 
 
