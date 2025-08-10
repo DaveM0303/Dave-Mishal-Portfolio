@@ -576,9 +576,9 @@ const PROXY_URL = "https://llmproxyapi.dave-mishal.workers.dev";
 
   const originalText = btnText.textContent;
   button.disabled = true;
-  btnText.textContent = "Generating…";
+  btnText.textContent = "Analyzing…";
   spinner?.classList?.remove('hidden');
-  outputDiv.textContent = "Working…";
+  outputDiv.textContent = "Analyzing your job description…";
 
   const prompt = `
 Write a concise “Why I’m the Best Fit” response for candidate Dave Mishal.
@@ -785,6 +785,7 @@ async function generateCoverLetter(jobDescription) {
 
 </body>
 </html>
+
 
 
 
