@@ -553,34 +553,65 @@
       text = applyTone(text, tone);
       return text;
     }
+    
+const USE_API = true;
+const PROXY_URL = "https://llmproxyapi.dave-mishal.workers.dev";
 
     async function generateCoverLetter() {
-      const jdEl = document.getElementById('job-description-input');
-      const outputDiv = document.getElementById('cover-letter-output');
-      const button = document.getElementById('generate-cover-letter-btn');
-      const btnText = document.getElementById('button-text');
-      const spinner = document.getElementById('loading-spinner');
-      const tone = document.getElementById('tone').value;
-      const seniority = document.getElementById('seniority').value;
+  const jdEl = document.getElementById('job-description-input');
+  const outputDiv = document.getElementById('cover-letter-output');
+  const button = document.getElementById('generate-cover-letter-btn');
+  const btnText = document.getElementById('button-text');
+  const spinner = document.getElementById('loading-spinner'); // ok if missing
+  const tone = (document.getElementById('tone')?.value || 'Executive');
+  const seniority = (document.getElementById('seniority')?.value || 'Director');
 
-      const jobDescription = jdEl.value.trim();
-      if (!jobDescription) { outputDiv.textContent = "Please paste a job description to see why I'm the best fit."; return; }
-      if (jobDescription.length < 120) { outputDiv.textContent = "The job description looks short. Paste more of the posting for better results."; return; }
+  const jobDescription = (jdEl?.value || '').trim();
+  if (!jobDescription) { outputDiv.textContent = "Please paste a job description."; return; }
 
-      const originalText = btnText.textContent;
-      button.disabled = true; btnText.textContent = "Analyzing…"; spinner.classList.remove('hidden');
-      outputDiv.textContent = "Working…";
+  const originalText = btnText.textContent;
+  button.disabled = true;
+  btnText.textContent = "Generating…";
+  spinner?.classList?.remove('hidden');
+  outputDiv.textContent = "Working…";
 
-      try {
-        const req = extractRequirements(jobDescription);
-        const match = scoreMatch(resumeData, req);
-        const text = buildLocalAnswer(jobDescription, resumeData, req, match, tone, seniority);
-        outputDiv.textContent = text;
-        saveState();
-      } finally {
-        button.disabled = false; btnText.textContent = originalText; spinner.classList.add('hidden');
-      }
-    }
+  const prompt = `
+You are writing a concise "Why I’m the Best Fit" response (not a cover letter) for candidate Dave Mishal.
+Return ONLY plain text. Do NOT include any match score.
+
+Sections:
+• 1–2 sentence positioning statement (first person).
+• 6–8 bullets mapping the job’s key requirements to Dave’s quantified achievements.
+• 4–6 proof bullets with numbers (revenue, savings, team size, % improvements).
+• 1–2 sentence closer inviting a quick call or walkthrough.
+
+Voice: ${tone}. Seniority focus: ${seniority}. Be confident and specific. No salutations or sign-off.
+
+Job Description:
+${jobDescription}
+
+Resume JSON (facts & numbers to use):
+${JSON.stringify(resumeData)}
+`.trim();
+
+  try {
+    const r = await fetch(PROXY_URL, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ prompt })
+    });
+    if (!r.ok) throw new Error(await r.text());
+    const j = await r.json();
+    outputDiv.textContent = (j?.text || "").trim() || "No response received.";
+  } catch (e) {
+    outputDiv.textContent = "Error contacting the AI service. Please try again shortly.";
+    console.error(e);
+  } finally {
+    button.disabled = false;
+    btnText.textContent = originalText;
+    spinner?.classList?.add('hidden');
+  }
+}
 
     /* ---------------- UTILITIES ---------------- */
     function createDownloadableResume() {
@@ -739,6 +770,7 @@ async function generateCoverLetter(jobDescription) {
 
 </body>
 </html>
+
 
 
 
