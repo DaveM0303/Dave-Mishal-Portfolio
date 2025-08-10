@@ -80,8 +80,8 @@
         <div class="grid md:grid-cols-2 gap-8 text-lg text-gray-700">
           <div class="space-y-6">
             <div><h3 class="font-bold text-xl text-gray-800 mb-2">Retail Operations Leadership</h3><p>Scaled footprints, implemented SOPs, and orchestrated AI/WMS workflows to boost productivity and control costs.</p></div>
-            <div><h3 class="font-bold text-xl text-gray-800 mb-2">Wholesale</h3><p>100+ trade shows; placements with Sam’s Club, Toys R Us; durable channel partnerships.</p></div>
-            <div><h3 class="font-bold text-xl text-gray-800 mb-2">eCommerce & Media Buying</h3><p>Launched a kids’ apparel brand to $600k in year one via Shopify, ShipStation, and paid media.</p></div>
+            <div><h3 class="font-bold text-xl text-gray-800 mb-2">Wholesale</h3><p>100+ trade shows; placements with Sam’s Club, Toys R Us; durable partnerships.</p></div>
+            <div><h3 class="font-bold text-xl text-gray-800 mb-2">eCommerce & Media Buying</h3><p>Launched and scaled a kids’ apparel brand to $600k in year one via Shopify, ShipStation, and paid media.</p></div>
             <div><h3 class="font-bold text-xl text-gray-800 mb-2">Plant Management</h3><p>$1M pipeline; $500k in six months; optimized production recipes and lines.</p></div>
           </div>
           <div class="space-y-6">
@@ -256,7 +256,7 @@
             "Executed 100+ trade shows, boosting visibility and partnerships by 30%.",
             "Pioneered innovative beauty product lines with category leadership.",
           ],
-          metrics: { financial: 300, efficiency: 25 },
+            metrics: { financial: 300, efficiency: 25 },
           skills: [
             "Go-to-Market Strategy","Product Development","Market Expansion","Retail Strategy",
             "P&L Management","Brand Development","Strategic Leadership","Vendor Relations",
@@ -456,19 +456,13 @@
 
       new Chart(financialCtx, {
         type: 'bar',
-        data: {
-          labels: chartLabels,
-          datasets: [{ label: 'Cost Savings (in thousands)', data: costSavingsData, backgroundColor: 'rgba(59,130,246,0.7)', borderColor: 'rgba(59,130,246,1)', borderWidth: 1 }]
-        },
+        data: { labels: chartLabels, datasets: [{ label: 'Cost Savings (in thousands)', data: costSavingsData, backgroundColor: 'rgba(59,130,246,0.7)', borderColor: 'rgba(59,130,246,1)', borderWidth: 1 }] },
         options: { ...commonOptions, plugins: { ...commonOptions.plugins, title: { display: true, text: 'Annual Cost Savings by Role', font: { size: 16 } } }, scales: { ...commonOptions.scales, y: { ...commonOptions.scales.y, ticks: { callback: v => '$' + v + 'K' } } } }
       });
 
       new Chart(efficiencyCtx, {
         type: 'bar',
-        data: {
-          labels: chartLabels,
-          datasets: [{ label: 'Productivity/Efficiency Gain', data: efficiencyData, backgroundColor: 'rgba(16,185,129,0.7)', borderColor: 'rgba(16,185,129,1)', borderWidth: 1 }]
-        },
+        data: { labels: chartLabels, datasets: [{ label: 'Productivity/Efficiency Gain', data: efficiencyData, backgroundColor: 'rgba(16,185,129,0.7)', borderColor: 'rgba(16,185,129,1)', borderWidth: 1 }] },
         options: { ...commonOptions, plugins: { ...commonOptions.plugins, title: { display: true, text: 'Productivity & Efficiency Gains (%)', font: { size: 16 } } }, scales: { ...commonOptions.scales, y: { ...commonOptions.scales.y, ticks: { callback: v => v + '%' } } } }
       });
     }
@@ -479,7 +473,6 @@
     }, { threshold: 0.2 });
 
     /* ---------------- LLM: LOCAL ANALYSIS + CONTROLS ---------------- */
-
     function extractRequirements(jdText) {
       const lines = jdText.replace(/\r/g, '').split('\n').map(l => l.trim()).filter(Boolean);
       const bullets = lines.filter(l => /^[•\-*]/.test(l) || /\b(responsibilities|requirements|qualifications|what you’ll do|what you will do|you will)\b/i.test(l));
@@ -513,7 +506,7 @@
     function applyTone(text, tone) {
       if (tone === 'Analytical') return text.replace(/I’m /g, "I am ").replace(/ - /g, " — ");
       if (tone === 'Energetic') return text.replace(/I’m /g, "I'm ").replace(/• /g, "• ✅ ");
-      return text; // Executive: default concise, confident
+      return text; // Executive default
     }
 
     function seniorityWeights(seniority) {
@@ -530,7 +523,7 @@
       const t = a.toLowerCase();
       if (t.includes("launched") || t.includes("scaled") || t.includes("pipeline") || t.includes("revenue")) return "strategy";
       if (t.includes("managed") || t.includes("team") || t.includes("stores") || t.includes("locations")) return "leadership";
-      return "ops"; // cost, process, WMS, SOP, % improvements
+      return "ops";
     }
 
     function buildLocalAnswer(jdText, resume, req, match, tone, seniority) {
@@ -538,7 +531,6 @@
       const quantified = [];
       resume.experience.forEach(e => (e.achievements || []).forEach(a => { if (/\d/.test(a)) quantified.push(a); }));
 
-      // Sort wins by seniority weighting
       const winsSorted = [...quantified].sort((a, b) => {
         const wa = weights[classifyAchievement(a)] || 1;
         const wb = weights[classifyAchievement(b)] || 1;
@@ -600,7 +592,7 @@
         const match = scoreMatch(resumeData, req);
         const text = buildLocalAnswer(jobDescription, resumeData, req, match, tone, seniority);
         outputDiv.textContent = text;
-        saveState(); // persist latest
+        saveState();
       } finally {
         button.disabled = false; btnText.textContent = originalText; spinner.classList.add('hidden');
       }
