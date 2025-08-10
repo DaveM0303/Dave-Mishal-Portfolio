@@ -601,8 +601,17 @@ ${JSON.stringify(resumeData)}
       body: JSON.stringify({ prompt })
     });
     if (!r.ok) throw new Error(await r.text());
-    const j = await r.json();
-    outputDiv.textContent = (j?.text || "").trim() || "No response received.";
+const j = await r.json();
+let text = (j?.text || "").trim();
+
+// clean/sanitize any stray formatting
+text = text
+  .replace(/\*\*/g, "")           // remove bold markers if any
+  .replace(/^\s*[-•]\s?/gm, "• ") // normalize leading bullets to "• "
+  .replace(/\n{3,}/g, "\n\n");    // collapse extra blank lines
+
+outputDiv.textContent = text || "No response received.";
+
   } catch (e) {
     outputDiv.textContent = "Error contacting the AI service. Please try again shortly.";
     console.error(e);
@@ -770,6 +779,7 @@ async function generateCoverLetter(jobDescription) {
 
 </body>
 </html>
+
 
 
 
