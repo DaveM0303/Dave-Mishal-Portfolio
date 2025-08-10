@@ -576,23 +576,25 @@ const PROXY_URL = "https://llmproxyapi.dave-mishal.workers.dev";
   outputDiv.textContent = "Working…";
 
   const prompt = `
-You are writing a concise "Why I’m the Best Fit" response (not a cover letter) for candidate Dave Mishal.
-Return ONLY plain text. Do NOT include any match score.
+Write a concise “Why I’m the Best Fit” response for candidate Dave Mishal.
 
-Sections:
-• 1–2 sentence positioning statement (first person).
-• 6–8 bullets mapping the job’s key requirements to Dave’s quantified achievements.
-• 4–6 proof bullets with numbers (revenue, savings, team size, % improvements).
-• 1–2 sentence closer inviting a quick call or walkthrough.
+STRICT FORMAT RULES:
+- Plain text only. No Markdown. No bold/italics. No asterisks. No headings.
+- Use simple dash bullets like: "- Increased X by Y%..."
+- 1 short opener (1–2 sentences) in first person.
+- 6–8 punchy bullets mapping THIS job’s requirements to Dave’s quantified wins.
+- 4–6 proof bullets (numbers: revenue, savings, team size, % improvements).
+- 1 short closer inviting a quick call. No salutations or sign-off.
 
-Voice: ${tone}. Seniority focus: ${seniority}. Be confident and specific. No salutations or sign-off.
+Tone: ${tone}. Seniority focus: ${seniority}. Be specific, high-energy verbs, and numbers.
 
 Job Description:
 ${jobDescription}
 
-Resume JSON (facts & numbers to use):
+Dave’s resume data (facts to use; don’t list everything—prioritize what matches the JD):
 ${JSON.stringify(resumeData)}
 `.trim();
+
 
   try {
     const r = await fetch(PROXY_URL, {
@@ -770,6 +772,7 @@ async function generateCoverLetter(jobDescription) {
 
 </body>
 </html>
+
 
 
 
