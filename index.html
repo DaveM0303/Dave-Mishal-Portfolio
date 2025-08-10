@@ -132,57 +132,41 @@
     </section>
 
     <!-- LLM FEATURE -->
-    <section id="llm-features" class="bg-gray-100 py-16 px-4 md:px-8">
-      <div class="max-w-4xl mx-auto">
-        <div class="text-center">
-          <h2 class="text-3xl font-bold text-gray-800 mb-4">Paste a Job Description → Get Why I’m a Fit</h2>
-          <p class="text-lg text-gray-600">Your text stays in your browser. If you later enable the API, only then is text sent to your secure proxy.</p>
-        </div>
+   <section id="llm-features" class="bg-gray-100 py-16 px-4 md:px-8">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center">
+      <h2 class="text-3xl font-bold text-gray-800 mb-4">Paste a Job Description → Get Why I’m a Fit</h2>
+    </div>
 
-        <!-- Controls -->
-        <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div>
-            <label class="control-label block mb-1" for="tone">Tone</label>
-            <select id="tone" class="w-full border border-gray-300 rounded-lg p-2">
-              <option>Executive</option>
-              <option>Analytical</option>
-              <option>Energetic</option>
-            </select>
-          </div>
-          <div>
-            <label class="control-label block mb-1" for="seniority">Seniority focus</label>
-            <select id="seniority" class="w-full border border-gray-300 rounded-lg p-2">
-              <option>Director</option>
-              <option>VP</option>
-              <option>Manager</option>
-              <option>IC</option>
-            </select>
-          </div>
-          <div class="flex items-end">
-            <p class="note">Tip: Set tone/seniority, paste the JD, then click Generate.</p>
-          </div>
-        </div>
+    <!-- hidden defaults so JS keeps working -->
+    <input type="hidden" id="tone" value="Executive" />
+    <input type="hidden" id="seniority" value="Director" />
 
-        <div class="max-w-4xl mx-auto mt-6">
-          <textarea id="job-description-input" class="w-full h-44 p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow duration-200" placeholder="Paste the job description here..."></textarea>
+    <div class="max-w-4xl mx-auto mt-6">
+      <textarea id="job-description-input"
+        class="w-full h-44 p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow duration-200"
+        placeholder="Paste the job description here..."></textarea>
 
-          <div class="sticky-actions mt-4 space-y-2 sm:space-y-0 sm:flex sm:items-center sm:justify-between">
-            <button id="generate-cover-letter-btn" class="w-full sm:w-auto bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 transition flex items-center justify-center gap-2">
-              <span id="button-text">Generate my tailored fit</span>
-              <span id="loading-spinner" class="spinner hidden"></span>
-            </button>
-            <div class="flex gap-2 justify-end">
-              <button id="copy-output" class="text-sm px-3 py-2 rounded border border-gray-300 hover:bg-gray-50">Copy</button>
-              <button id="download-output" class="text-sm px-3 py-2 rounded border border-gray-300 hover:bg-gray-50">Download .txt</button>
-            </div>
-          </div>
-
-          <div id="cover-letter-output" class="mt-3 p-6 bg-white rounded-lg border border-gray-200 min-h-[200px] text-gray-800 whitespace-pre-wrap text-left shadow-md" aria-live="polite">
-            The answer will appear here, demonstrating how my skills align with your requirements.
-          </div>
+      <div class="mt-4 flex items-center justify-between">
+        <button id="generate-cover-letter-btn"
+          class="bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 transition flex items-center justify-center gap-2">
+          <span id="button-text">Generate my tailored fit</span>
+          <span id="loading-spinner" class="spinner hidden"></span>
+        </button>
+        <div class="flex gap-2">
+          <button id="copy-output" class="text-sm px-3 py-2 rounded border border-gray-300 hover:bg-gray-50">Copy</button>
+          <button id="download-output" class="text-sm px-3 py-2 rounded border border-gray-300 hover:bg-gray-50">Download .txt</button>
         </div>
       </div>
-    </section>
+
+      <div id="cover-letter-output"
+        class="mt-3 p-6 bg-white rounded-lg border border-gray-200 min-h-[200px] text-gray-800 whitespace-pre-wrap text-left shadow-md"
+        aria-live="polite">
+        The answer will appear here, demonstrating how my skills align with your requirements.
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- CTA -->
     <section id="call-to-action" class="text-center py-16 px-4 md:px-8 bg-blue-600 text-white">
@@ -728,3 +712,4 @@
   </script>
 </body>
 </html>
+
